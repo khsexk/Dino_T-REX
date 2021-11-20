@@ -33,10 +33,13 @@
 			</tr>
 		</table>
 	</div>
-	
 	<div align="center">
 			<button type="button" onclick="location.href='gameFolder/game.html' ">Game</button>
-			<button type="button" onclick="location.href='gameFolder/list.html' ">Rating</button>
+			<button type="button" onclick="location.href='http://localhost:8080/hyunseok_free/MemberServlet?cmd=list' ">Rating</button>
+	</div>
+		<div align="center">
+			<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/MemberServlet?cmd=update&id=<%=member.getId() %>' ">Edit Info</button>
+			<button id="btn" type="button" formmethod="GET" onclick="location.href= 'http://localhost:8080/hyunseok_free/MemberServlet?cmd=delete&id=<%=member.getId() %>' ">Leave account</button>
 	</div>
 </body>
 </html>

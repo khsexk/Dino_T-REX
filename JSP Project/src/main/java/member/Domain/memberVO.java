@@ -1,6 +1,6 @@
 package member.Domain;
 
-public class memberVO {
+public class MemberVO {
 	private String id;
 	private String passwd;
 	private String username;
@@ -8,6 +8,7 @@ public class memberVO {
 	private String old;
 	private String mobile;
 	private String email;
+	private String score;
 	
 	public String getId() {
 		return id;
@@ -50,5 +51,11 @@ public class memberVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
 	}
 }
