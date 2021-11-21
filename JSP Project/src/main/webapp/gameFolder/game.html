@@ -6,22 +6,30 @@
 	<title>Dino Game</title>
 </head>
 <body>
-	<div id="container">
-		<div id="dino">
-			<img src="../gameResources/dino.png" alt="dino">
+	<form action="http://localhost:8080/hyunseok_free/main.html">
+		<div id="container">
+			<div id="dino">
+				<img src="../gameResources/dino.png" alt="dino">
+			</div>
+			<div id="block">
+				<img src="../gameResources/cactus.png" alt="blocks">
+			</div>
+			<div id="road">
+				<img src="../gameResources/road.png" alt="road">
+			</div>
+			<div id="cloud">
+				<img src="../gameResources/cloud.png" alt="cloud">
+			</div>
+			<div id="score">Score <b id="point">0</b></div>
+			<div id="gameOver">GAME OVER</div>
 		</div>
-		<div id="block">
-			<img src="../gameResources/cactus.png" alt="blocks">
+		<script src="gameJS.js"></script>
+		
+		<div align="center">
+				<button type="button" onclick="location.href='../main.html' ">Go Main Page</button> <br>
+				ID: <p id="point"> <script type="text/javascript" src="send.js"></script>
+				<input type="submit" name="submit" value="Save">
 		</div>
-		<div id="road">
-			<img src="../gameResources/road.png" alt="road">
-		</div>
-		<div id="cloud">
-			<img src="../gameResources/cloud.png" alt="cloud">
-		</div>
-		<div id="score">Score <b id="point">0000</b></div>
-		<div id="gameOver">GAME OVER</div>
-	</div>
-	<script src="gameJS.js"></script>
+	</form>
 </body>
 </html>

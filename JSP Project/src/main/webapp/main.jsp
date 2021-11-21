@@ -34,8 +34,8 @@
 		</table>
 	</div>
 	<div align="center">
-			<form action="gameFolder/game.jsp" target="_self">
-				<input type="text" name="id" value=<%=member.getId() %> readonly >
+			<form action="http://localhost:8080/hyunseok_free/MemberServlet?cmd=game" method="post">
+				<input type="text" name="id" value="<%=member.getId() %>" readonly >
 				<input type="submit" name="submit" value="Game Start" />
 			</form>
 			<button type="button" onclick="location.href='http://localhost:8080/hyunseok_free/MemberServlet?cmd=list' ">Rating</button>

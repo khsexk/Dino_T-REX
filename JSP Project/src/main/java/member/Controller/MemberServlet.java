@@ -39,8 +39,8 @@ public class MemberServlet extends HttpServlet {
 		
 		if(cmdReq.equals("join")) 
 			response.sendRedirect("register.html");
-		else if(cmdReq.equals("login")) {
-			
+		else if(cmdReq.equals("game")) {
+
 		}
 		else if(cmdReq.equals("update")) {
 			MemberDAO dao = new MemberDAO();
@@ -63,40 +63,7 @@ public class MemberServlet extends HttpServlet {
 			
 			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
 			view.forward(request, response);
-		} else if(cmdReq.equals("rate")) {
-			String id = request.getParameter("saveScore.id");
-			String score = request.getParameter("saveScore.save");
-			MemberDAO dao = new MemberDAO();
-			MemberVO save = dao.read(id);
-			
-			save.setScore(score);
-			
-			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
-			else message = "수정 실패입니다";
-			
-			ArrayList<MemberVO> memberList = dao.getMemberList();
-			request.setAttribute("memberList", memberList);
-			
-			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
-			view.forward(request, response);
-			
-			/*String id = request.getParameter("id");
-			String score = request.getParameter("save");
-			MemberDAO dao = new MemberDAO();
-			MemberVO save = dao.read(id);
-			
-			save.setNation(score);
-			save.setScore(score);
-			
-			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
-			else message = "수정 실패입니다";
-			
-			ArrayList<MemberVO> memberList = dao.getMemberList();
-			request.setAttribute("memberList", memberList);
-			
-			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
-			view.forward(request, response);*/
-		}
+		} 
 	}	// doGet
 
 	/**
@@ -168,6 +135,14 @@ public class MemberServlet extends HttpServlet {
 				view.forward(request, response);
 			}
 		} 
+		else if(cmdReq.equals("game")) {
+			String id = request.getParameter("id");
+			
+			request.setAttribute("id", id);
+			RequestDispatcher view = request.getRequestDispatcher("gameFolder/game.jsp");
+			view.forward(request, response);
+		}
+		
 		// UPDATE
 		else if(cmdReq.equals("update")) {
 			MemberVO memberVO = new MemberVO();
@@ -215,6 +190,41 @@ public class MemberServlet extends HttpServlet {
 				RequestDispatcher view = request.getRequestDispatcher("main.jsp");
 				view.forward(request, response);
 			}
+		}
+		// RATING
+		else if(cmdReq.equals("rate")) {
+			String id = request.getParameter("id");
+			String score = request.getParameter("save");
+			MemberDAO dao = new MemberDAO();
+			MemberVO save = dao.read(id);
+			
+			save.setScore(score);
+			
+			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
+			else message = "수정 실패입니다";
+			
+			ArrayList<MemberVO> memberList = dao.getMemberList();
+			request.setAttribute("memberList", memberList);
+			
+			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
+			view.forward(request, response);
+			
+			/*String id = request.getParameter("id");
+			String score = request.getParameter("save");
+			MemberDAO dao = new MemberDAO();
+			MemberVO save = dao.read(id);
+			
+			save.setNation(score);
+			save.setScore(score);
+			
+			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
+			else message = "수정 실패입니다";
+			
+			ArrayList<MemberVO> memberList = dao.getMemberList();
+			request.setAttribute("memberList", memberList);
+			
+			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
+			view.forward(request, response);*/
 		}
 
 	}	// doPost

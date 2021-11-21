@@ -60,6 +60,8 @@ let result = setInterval(()=>{
         block.classList.remove("blockActive");
         road.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
+
         clearInterval(interval);
+		document.saveScore.save.value = playerScore;
     }
 }, 10);
