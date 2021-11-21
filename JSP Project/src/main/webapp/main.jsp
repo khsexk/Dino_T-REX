@@ -15,7 +15,7 @@
 	
 	<div>
 	
-		<%
+		<%	
 			MemberVO member = (MemberVO)request.getAttribute("member");
 		%>
 		<br>
@@ -34,12 +34,15 @@
 		</table>
 	</div>
 	<div align="center">
-			<button type="button" onclick="location.href='gameFolder/game.html' ">Game</button>
+			<form action="gameFolder/game.jsp" target="_self">
+				<input type="text" name="id" value=<%=member.getId() %> readonly >
+				<input type="submit" name="submit" value="Game Start" />
+			</form>
 			<button type="button" onclick="location.href='http://localhost:8080/hyunseok_free/MemberServlet?cmd=list' ">Rating</button>
 	</div>
 		<div align="center">
 			<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/MemberServlet?cmd=update&id=<%=member.getId() %>' ">Edit Info</button>
 			<button id="btn" type="button" formmethod="GET" onclick="location.href= 'http://localhost:8080/hyunseok_free/MemberServlet?cmd=delete&id=<%=member.getId() %>' ">Leave account</button>
-	</div>
+		</div>
 </body>
 </html>

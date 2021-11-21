@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Leave Account</title>
 </head>
 <body>
 	<% 
@@ -12,7 +12,7 @@
 		request.setAttribute("memberDel", member);
 	%>
 	<div align="center">
-		<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/home.jsp' ">Register</button>
+		<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/home.jsp' ">Back</button>
 		<form action="http://localhost:8080/hyunseok_free/MemberServlet?cmd=delete&id=<%=member.getId() %>" method="post">
 			ID: <input type="text" name="id" value=<%=member.getId() %> readonly >
 			<input type="submit" name="submit" value="탈퇴" />

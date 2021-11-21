@@ -35,6 +35,7 @@ public class MemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String cmdReq = request.getParameter("cmd");
+		String message = "";
 		
 		if(cmdReq.equals("join")) 
 			response.sendRedirect("register.html");
@@ -62,6 +63,39 @@ public class MemberServlet extends HttpServlet {
 			
 			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
 			view.forward(request, response);
+		} else if(cmdReq.equals("rate")) {
+			String id = request.getParameter("saveScore.id");
+			String score = request.getParameter("saveScore.save");
+			MemberDAO dao = new MemberDAO();
+			MemberVO save = dao.read(id);
+			
+			save.setScore(score);
+			
+			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
+			else message = "수정 실패입니다";
+			
+			ArrayList<MemberVO> memberList = dao.getMemberList();
+			request.setAttribute("memberList", memberList);
+			
+			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
+			view.forward(request, response);
+			
+			/*String id = request.getParameter("id");
+			String score = request.getParameter("save");
+			MemberDAO dao = new MemberDAO();
+			MemberVO save = dao.read(id);
+			
+			save.setNation(score);
+			save.setScore(score);
+			
+			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
+			else message = "수정 실패입니다";
+			
+			ArrayList<MemberVO> memberList = dao.getMemberList();
+			request.setAttribute("memberList", memberList);
+			
+			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
+			view.forward(request, response);*/
 		}
 	}	// doGet
 
@@ -129,7 +163,7 @@ public class MemberServlet extends HttpServlet {
 			
 			else if(id.equals(login.getId()) && pw.equals(login.getPasswd())) {
 				request.setAttribute("member", login);
-				
+
 				RequestDispatcher view = request.getRequestDispatcher("main.jsp");
 				view.forward(request, response);
 			}
@@ -163,8 +197,6 @@ public class MemberServlet extends HttpServlet {
 			MemberDAO dao = new MemberDAO();
 			MemberVO del = dao.read(id);
 			
-			
-			
 			if(dao.delete(del)) {
 				response.setContentType("text/html; charset=UTF-8"); 
 				PrintWriter writer = response.getWriter(); 
@@ -184,6 +216,7 @@ public class MemberServlet extends HttpServlet {
 				view.forward(request, response);
 			}
 		}
+
 	}	// doPost
 
 }

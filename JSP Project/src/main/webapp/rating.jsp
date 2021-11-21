@@ -11,7 +11,7 @@
 <body>
 	<header>Member Rating</header>
 	<p align="center">
-		<a href="http://localhost:8080/hyunseok_free/main.jsp" target="_self">메인 페이지 이동</a>
+		<a href="http://localhost:8080/hyunseok_free/home.jsp" target="_self">메인 페이지 이동</a>
 	</p>
 	<table>
 		<tr> <td>순위</td> <td>계정</td> <td>이름</td> <td>국적</td> <td>나이</td> <td>핸드폰</td> <td>메일주소</td> <td>점수</td></tr>

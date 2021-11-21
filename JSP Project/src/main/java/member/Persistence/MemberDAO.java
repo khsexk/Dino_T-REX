@@ -97,7 +97,7 @@ public class MemberDAO {
 			pstmt.setString(5,  vo.getOld());
 			pstmt.setString(6,  vo.getMobile());
 			pstmt.setString(7,  vo.getEmail());
-			pstmt.setString(8,  "100");
+			pstmt.setString(8,  "0");
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -185,4 +185,28 @@ public class MemberDAO {
 		}
 		return memberList;
 	}
+	
+	//SAVE
+	public boolean saveScore(MemberVO vo) {
+		connect();
+	
+		StringBuilder sb = new StringBuilder("update dino_game set score = ? ")
+				.append("where id = '").append(vo.getId()).append("\'");
+		String sql = sb.toString();
+		// update student set passwd = '1111' where id='hyunseok';
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,  vo.getScore());
+
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return true;
+	}
+	
 }
