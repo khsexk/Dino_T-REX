@@ -72,7 +72,7 @@ public class MemberDAO {
 				vo.setOld(rs.getString("olds"));
 				vo.setMobile(rs.getString("mobile"));
 				vo.setEmail(rs.getString("email"));
-				vo.setScore(rs.getString("score"));
+				vo.setScore(Integer.toString(rs.getInt("score")));
 			}
 			rs.close();
 		} catch(SQLException e) {
@@ -97,7 +97,7 @@ public class MemberDAO {
 			pstmt.setString(5,  vo.getOld());
 			pstmt.setString(6,  vo.getMobile());
 			pstmt.setString(7,  vo.getEmail());
-			pstmt.setString(8,  "0");
+			pstmt.setInt(8,  0);
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -173,7 +173,7 @@ public class MemberDAO {
 				vo.setOld(rs.getString("olds"));
 				vo.setMobile(rs.getString("mobile"));
 				vo.setEmail(rs.getString("email"));
-				vo.setScore(rs.getString("score"));
+				vo.setScore(Integer.toString(rs.getInt("score")));
 				
 				memberList.add(vo);
 			}
@@ -197,8 +197,8 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1,  vo.getScore());
-
+			pstmt.setInt(1,  Integer.parseInt(vo.getScore()));
+			
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
