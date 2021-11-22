@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Dino T-REX HomePage </title>
-	<link rel="stylesheet" href="resources/student.css" type="text/css"></link>
+	<link rel="stylesheet" href="resources/member.css" type="text/css"></link>
 	<script>
 		alert('로그인에 성공하셨습니다');
 	</script>

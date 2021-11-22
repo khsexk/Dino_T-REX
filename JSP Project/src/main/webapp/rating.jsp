@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="resources/student.css" type="text/css"></link>
+	<link rel="stylesheet" href="resources/member.css" type="text/css"></link>
 	<title> Dino Game Rate </title>
 </head>
 <body>

@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Leave Account</title>
+	<meta charset="UTF-8">
+	<title>Leave Account</title>
+	<link rel="stylesheet" href="resources/member.css" type="text/css"></link>
 </head>
 <body>
 	<% 

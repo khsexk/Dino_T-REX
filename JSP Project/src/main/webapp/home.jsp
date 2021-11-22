@@ -6,10 +6,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Dino T-REX HomePage </title>
-	<link rel="stylesheet" href="resources/student.css" type="text/css"></link>
+	<link rel="stylesheet" href="resources/member.css" type="text/css"></link>
 </head>
 
-<body>
+<body id="login">
 	<header> Dino T-REX </header>
 	<form action="http://localhost:8080/hyunseok_free/MemberServlet?cmd=login" method="post">
 		<fieldset>

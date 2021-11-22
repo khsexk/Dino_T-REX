@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 
 	@font-face {
       src : url("../font/BMJUA_ttf.ttf"); 
@@ -11,11 +12,13 @@
 		font-size: 60px;
 		text-shadow: 3px 3px 8px gray;
 		text-align: center;
+		color: white;
 	}
 	
 	body {
 		color: black;
 		font-family: '맑은 고딕', '돋움', '고딕';
+		background-image: url("https://cdn1.epicgames.com/047392e91d5e4cfdb19e2767440ab206/offer/EGS_JurassicWorldEvolution_FrontierDevelopments_S1-2560x1440-65771d1c16c9c78bfd4764bf0ad54d9a.jpg");
 	}
 	
 	div {

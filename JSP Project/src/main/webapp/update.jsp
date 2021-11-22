@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Member Update</title>
-	<link rel="stylesheet" href="resources/student.css" type="text/css"></link>
+	<link rel="stylesheet" href="resources/member.css" type="text/css"></link>
 </head>
 <body>
 	<div align="center">
