@@ -12,8 +12,10 @@
 		MemberVO member = (MemberVO)request.getAttribute("member");
 		request.setAttribute("memberDel", member);
 	%>
+	<header> 회원 탈퇴 안내 </header>
+	
 	<div align="center">
-		<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/home.jsp' ">Back</button>
+		<button type="button" onclick="location.href= 'http://localhost:8080/hyunseok_free/main.jsp' ">Back</button>
 		<form action="http://localhost:8080/hyunseok_free/MemberServlet?cmd=delete&id=<%=member.getId() %>" method="post">
 			ID: <input type="text" name="id" value=<%=member.getId() %> readonly >
 			<input type="submit" name="submit" value="탈퇴" />

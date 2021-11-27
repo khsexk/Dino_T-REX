@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.Domain.MemberVO"%>
+    <%@ taglib uri="../WEB-INF/tld/infoTag.tld" prefix="info" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="gameResources/gameDesign.css">
 	<title>Dino Game</title>
-	<% 
-		String id = (String)request.getAttribute("id"); 
-	%>
+
 </head>
 <body>
+		<div align="center">
+			<H2> 게임 설명 </H2> <HR>
+			<info:print/>
+		</div>
+		
 		<div id="container">
 			<div id="dino">
 				<img src="gameResources/dino.png" alt="dino">
@@ -32,9 +36,9 @@
 		<script src="gameFolder/gameJS.js"></script>
 		
 		<div align="center">
-				<button type="button" onclick="location.href='http://localhost:8080/hyunseok_free/home.jsp' ">Go Main Page</button> <br>
+				<button type="button" onclick="location.href='http://localhost:8080/hyunseok_free/main.jsp' ">Go Main Page</button> <br>
 				<form name="saveScore" action="http://localhost:8080/hyunseok_free/MemberServlet?cmd=rate" method="post">
-					id: <input type="text" name="id" value=<%=id %> readonly >
+					id: <input type="text" name="id" value=${ id } readonly >
 					score: <input type="text" name="save" readonly >
 					<input type="submit" name="submit" value="save" />
 				</form>

@@ -39,9 +39,6 @@ public class MemberServlet extends HttpServlet {
 		
 		if(cmdReq.equals("join")) 
 			response.sendRedirect("register.html");
-		else if(cmdReq.equals("game")) {
-
-		}
 		else if(cmdReq.equals("update")) {
 			MemberDAO dao = new MemberDAO();
 			MemberVO member = dao.read(request.getParameter("id"));
@@ -92,8 +89,18 @@ public class MemberServlet extends HttpServlet {
 			MemberDAO dao = new MemberDAO();
 			
 			
-			if(dao.add(memberVO)) message = "가입 축하합니다";
-			else message = "가입 실패입니다";
+			if(dao.add(memberVO)) {
+				response.setContentType("text/html; charset=UTF-8"); 
+				PrintWriter writer = response.getWriter(); 
+				writer.println("<script>alert('가입을 축하합니다!');location.href='home.jsp';</script>");
+				writer.close();
+			}
+			else {
+				response.setContentType("text/html; charset=UTF-8"); 
+				PrintWriter writer = response.getWriter(); 
+				writer.println("<script>alert('가입 실패했습니다');location.href='\"+\"home.jsp\"+\"';</script>");
+				writer.close();
+			}
 			
 			request.setAttribute("greetings", message);
 			request.setAttribute("student", memberVO);
@@ -101,6 +108,7 @@ public class MemberServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("home.jsp");
 			view.forward(request, response);
 		} 
+		// LOG-IN
 		else if(cmdReq.equals("login")) {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("passwd");
@@ -208,23 +216,6 @@ public class MemberServlet extends HttpServlet {
 			
 			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
 			view.forward(request, response);
-			
-			/*String id = request.getParameter("id");
-			String score = request.getParameter("save");
-			MemberDAO dao = new MemberDAO();
-			MemberVO save = dao.read(id);
-			
-			save.setNation(score);
-			save.setScore(score);
-			
-			if(dao.saveScore(save)) message = "수정이 완료되었습니다.";
-			else message = "수정 실패입니다";
-			
-			ArrayList<MemberVO> memberList = dao.getMemberList();
-			request.setAttribute("memberList", memberList);
-			
-			RequestDispatcher view = request.getRequestDispatcher("rating.jsp");
-			view.forward(request, response);*/
 		}
 
 	}	// doPost

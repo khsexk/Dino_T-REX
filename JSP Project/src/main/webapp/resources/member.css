@@ -51,6 +51,16 @@
 		float: left;
 	}
 	
+	form {
+		list-style: none;
+		text-align: center;
+		background-color: #8977AD;
+		margin-left: 20px;
+		margin-right: 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	
 	ul {
 		list-style: none;
 		text-align: center;

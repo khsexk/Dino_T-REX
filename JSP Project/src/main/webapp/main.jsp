@@ -16,12 +16,18 @@
 	<div>
 	
 		<%	
-			MemberVO member = (MemberVO)request.getAttribute("member");
+			MemberVO mb = (MemberVO)request.getAttribute("member");
+			if(mb == null){
+				mb = null;
+			}else {
+				application.setAttribute("member", mb);
+			}
+			MemberVO member = (MemberVO)application.getAttribute("member");
 		%>
 		<br>
 		Member Information <br>
 		<table>
-		<tr> <td>계정</td> <td>이름</td> <td>국적</td> <td>나이</td> <td>핸드폰</td> <td>메일주소</td><td>Score</td></tr>
+		<tr> <td>계정</td> <td>이름</td> <td>국적</td> <td>나이</td> <td>핸드폰</td> <td>메일주소</td></tr>
 			<tr> 
 				<td><%=member.getId() %></td> 
 				<td><%=member.getUsername() %></td> 
@@ -29,7 +35,6 @@
 				<td><%=member.getOld() %></td> 
 				<td><%=member.getMobile() %></td> 
 				<td><%=member.getEmail() %></td>
-				<td><%=member.getScore() %></td>
 			</tr>
 		</table>
 	</div>
