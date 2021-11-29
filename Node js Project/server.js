@@ -27,7 +27,7 @@ const parser = new parsers.Readline(
         }
 );
 
-var port = new SerialPort('COM3',{
+var port = new SerialPort('COM10',{
     baudRate: 9600,
     dataBits: 8,
     parity: 'none',
@@ -36,6 +36,18 @@ var port = new SerialPort('COM3',{
 });
 
 port.pipe(parser);
+
+const jQuery = require('jquery');
+const window = require('window');
+
+const keyEvent = function() {
+    const event = jQuery.Event( "keypress", { keyCode: 38 } );
+    $(window).trigger(event);
+}
+// var event = window.createEvent("Events");
+// event.initEvent('keydown', true, true);
+// event.keyCode = 38;
+
 
 parser.on('data', function(data){
     console.log(data);
@@ -50,17 +62,15 @@ parser.on('data', function(data){
 
     promise
         .then((message) => {
-            console.log(data)
-            /*
-            var event = jQuery.Event("keypress", {
-                keyCode:38
-            });
-            window.trigger(event);*/
+            console.log(data);
+            // window.dispatchEvent(event);
+            keyEvent();
         })
         .catch((error) => {
-            console.error(`${data}: 자리 이용중`);
+            //console.error(`${data}: 자리 이용중`);
         })
         .finally(() => {
             //console.log('promise 작동중');
         })
 });
+

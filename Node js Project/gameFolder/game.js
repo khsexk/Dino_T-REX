@@ -56,13 +56,23 @@ window.addEventListener("keydown", (e)=>{
     }
 })
 
+window.addEventListener("keydown", (e)=>{
+    console.log(e);
+
+    if(e.key=="a"){
+        if(dino.classList != "dinoActive"){
+            jump();
+        }
+    }
+})
+
 // 충돌 → 게임오버
 let result = setInterval(()=>{
     let dinoBottom = parseInt(getComputedStyle(dino).getPropertyValue("bottom"));
-    console.log("DinoBottom" + dinoBottom);
+    //console.log("DinoBottom" + dinoBottom);
 
     let blockLeft = parseInt(getComputedStyle(block).getPropertyValue("left"));
-    console.log("BlockLeft" + blockLeft);
+    //console.log("BlockLeft" + blockLeft);
 
     if(dinoBottom <= 90 && blockLeft >= 20 && blockLeft <= 145){
         console.log("Game Over");
